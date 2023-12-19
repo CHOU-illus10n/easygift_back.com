@@ -1,7 +1,6 @@
 package com.ncepu.eg.pojo;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -11,13 +10,16 @@ import java.time.LocalDateTime;
 @Data
 public class User {
     @NotNull
-    private String UserId;
-    private String username;//用户名
-    @JsonIgnore//让springmvc把当前对象转换成json字符串的时候,忽略password,最终的json字符串中就没有password这个属性了
-    private String password;//密码
+    private Integer userId;
+    private String nickName;//用户名
+    private String openId;
+    private String profileUrl;
+    private String communityId;
+    private String phone;
+    private String points;
 
+    private String isDeleted;
 
-    private String userPic;//用户头像地址
     private LocalDateTime createTime;//创建时间
     private LocalDateTime updateTime;//更新时间
 }

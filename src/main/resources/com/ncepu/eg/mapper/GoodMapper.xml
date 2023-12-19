@@ -13,4 +13,12 @@
             </if>
         </where>
     </select>
+    <select id="getGoodInfo" resultType="com.ncepu.eg.pojo.GoodInfo">
+        select * from good_info
+        <where>
+            <if test="goodId != null">
+                good_id = #{id}
+            </if>
+        </where>
+    </select>
 </mapper>

@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Hello world!
  */
 @SpringBootApplication
-public class BigEventApplication {
+public class EasyGiftApplication {
     public static void main(String[] args) {
-        SpringApplication.run(BigEventApplication.class,args);
+        SpringApplication.run(EasyGiftApplication.class, args);
     }
 }

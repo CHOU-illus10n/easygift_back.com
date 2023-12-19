@@ -43,8 +43,8 @@ public class GoodServiceImpl implements GoodService {
     }
 
     @Override
-    public List<GoodInfo> getGoodInfo() {
-        return goodMapper.getGoodInfo();
+    public List<GoodInfo> getGoodInfo(Integer id) {
+        return goodMapper.getGoodInfo(id);
     }
 
     @Override
@@ -52,5 +52,21 @@ public class GoodServiceImpl implements GoodService {
         goodInfo.setCreateTime(LocalDateTime.now());
         goodInfo.setUpdateTime(LocalDateTime.now());
         goodMapper.add(goodInfo);
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        goodMapper.deleteById(id);
+    }
+
+    @Override
+    public GoodInfo getOne(Integer id) {
+        return goodMapper.getOne(id);
+    }
+
+    @Override
+    public void update(GoodInfo goodInfo) {
+        goodInfo.setUpdateTime(LocalDateTime.now());
+        goodMapper.update(goodInfo);
     }
 }

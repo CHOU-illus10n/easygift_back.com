@@ -33,14 +33,32 @@ public class GoodController {
     }
 
     @GetMapping("/getInfo")
-    public Result<List<GoodInfo>> getGoodInfo() {
-        List<GoodInfo> goodInfoList = goodService.getGoodInfo();
+    public Result<List<GoodInfo>> getGoodInfo(@RequestParam(required = false) Integer id) {
+        List<GoodInfo> goodInfoList = goodService.getGoodInfo(id);
         return Result.success(goodInfoList);
     }
 
     @PostMapping
     public Result add(@RequestBody GoodInfo goodInfo) {
         goodService.add(goodInfo);
+        return Result.success();
+    }
+
+    @DeleteMapping
+    public Result delete(Integer id) {
+        goodService.deleteById(id);
+        return Result.success();
+    }
+
+    @GetMapping("/getOne")
+    public Result<GoodInfo> getOne(Integer id) {
+        GoodInfo goodInfo = goodService.getOne(id);
+        return Result.success(goodInfo);
+    }
+
+    @PostMapping("/update")
+    public Result update(@RequestBody GoodInfo goodInfo) {
+        goodService.update(goodInfo);
         return Result.success();
     }
 }
