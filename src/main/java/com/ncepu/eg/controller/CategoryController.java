@@ -1,6 +1,7 @@
 package com.ncepu.eg.controller;
 
 import com.ncepu.eg.pojo.Category;
+import com.ncepu.eg.pojo.PageBean;
 import com.ncepu.eg.pojo.Result;
 import com.ncepu.eg.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,21 +27,30 @@ public class CategoryController {
         return Result.success(cs);
     }
 
-//    @GetMapping("/detail")
-//    public Result<Category> detail(Integer id){
-//        Category c = categoryService.findById(id);
-//        return Result.success(c);
-//    }
+    @GetMapping("/info")
+    public Result<PageBean<Category>> listInfo(Integer pageNum,
+                                               Integer pageSize,
+                                               @RequestParam(required = false) String categoryName) {
+        PageBean<Category> pc = categoryService.listInfo(pageNum, pageSize, categoryName);
+        return Result.success(pc);
+    }
 
-//    @PutMapping
-//    public Result update(@RequestBody @Validated(Category.Update.class) Category category){
-//        categoryService.update(category);
-//        return Result.success();
-//    }
-//
-//    @DeleteMapping
-//    public Result delete(Integer id){
-//        categoryService.deleteById(id);
-//        return Result.success();
-//    }
+
+    @GetMapping("/detail")
+    public Result<Category> detail(Integer id) {
+        Category c = categoryService.findById(id);
+        return Result.success(c);
+    }
+
+    @PutMapping
+    public Result update(@RequestBody Category category) {
+        categoryService.update(category);
+        return Result.success();
+    }
+
+    @DeleteMapping
+    public Result delete(Integer id) {
+        categoryService.deleteById(id);
+        return Result.success();
+    }
 }

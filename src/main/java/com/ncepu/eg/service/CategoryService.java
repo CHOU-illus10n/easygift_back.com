@@ -1,6 +1,7 @@
 package com.ncepu.eg.service;
 
 import com.ncepu.eg.pojo.Category;
+import com.ncepu.eg.pojo.PageBean;
 
 import java.util.List;
 
@@ -16,4 +17,10 @@ public interface CategoryService {
 
     //删除分类
     void deleteById(Integer id);
+
+    PageBean<Category> listInfo(Integer pageNum,
+                                Integer pageSize,
+                                String categoryName);
+
+    Category findById(Integer id);
 }

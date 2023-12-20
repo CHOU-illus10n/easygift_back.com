@@ -4,7 +4,6 @@ package com.ncepu.eg.service.impl;
 import com.ncepu.eg.mapper.AdminMapper;
 import com.ncepu.eg.pojo.Admin;
 import com.ncepu.eg.service.AdminService;
-import com.ncepu.eg.utils.Md5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +31,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void update(Admin admin) {
-        admin.setPassword(Md5Util.getMD5String(admin.getPassword()));
+
         adminMapper.update(admin);
     }
 }

@@ -38,8 +38,9 @@ public class AdminController {
         if (username == null) {
             return Result.error("用户名错误");
         }
+        String psd = Md5Util.getMD5String(password);
         //判断密码是否正确  loginUser对象中的password是密文
-        if (Md5Util.getMD5String(password).equals(loginAdmin.getPassword())) {
+        if (psd.equals(loginAdmin.getPassword())) {
             //登录成功
             Map<String, Object> claims = new HashMap<>();
             claims.put("username", loginAdmin.getUserName());
@@ -66,5 +67,6 @@ public class AdminController {
         adminService.update(admin);
         return Result.success();
     }
+
 
 }
