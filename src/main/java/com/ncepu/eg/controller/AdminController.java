@@ -61,4 +61,10 @@ public class AdminController {
         return Result.success();
     }
 
+    @PostMapping("/resetPassword")
+    public Result update(@RequestBody Admin admin) {
+        adminService.update(admin);
+        return Result.success();
+    }
+
 }

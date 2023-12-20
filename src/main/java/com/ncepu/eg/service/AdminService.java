@@ -7,4 +7,6 @@ public interface AdminService {
     Admin findByAdminAccount(String adminUserAccount);
 
     void updateAvatar(Admin admin);
+
+    void update(Admin admin);
 }

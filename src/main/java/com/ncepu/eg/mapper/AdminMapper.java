@@ -13,4 +13,7 @@ public interface AdminMapper {
 
     @Update("update admin set user_pic=#{userPic},update_time=now() where user_name=#{userName}")
     void updateAvatar(Admin admin);
+
+    @Update("update admin set password = #{password},update_time=now() where user_id=#{userId}")
+    void update(Admin admin);
 }
